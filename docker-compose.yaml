@@ -1,0 +1,57 @@
+---
+version: "2"
+services:
+  # Rancher's Kubernetes Engine deployment ephemeral container
+  rke:
+    build:
+      context: ./
+      dockerfile: rke.dockerfile
+    image: rke
+    volumes:
+      - ./ssh-keys:/data/ssh-keys
+      - ./cluster.yaml:/data/cluster.yaml
+    privileged: true
+    networks:
+      k8:
+        ipv4_address: "192.168.100.10"
+
+  node-1:
+    hostname: node-1
+    restart: always
+    build:
+      context: ./
+      dockerfile: node.dockerfile
+    image: k8-node
+    privileged: true
+    networks:
+      k8:
+        ipv4_address: "192.168.100.101"
+  node-2:
+    hostname: node-2
+    restart: always
+    build:
+      context: ./
+      dockerfile: node.dockerfile
+    image: k8-node
+    privileged: true
+    networks:
+      k8:
+        ipv4_address: "192.168.100.102"
+  node-3:
+    hostname: node-3
+    restart: always
+    build:
+      context: ./
+      dockerfile: node.dockerfile
+    image: k8-node
+    privileged: true
+    networks:
+      k8:
+        ipv4_address: "192.168.100.103"
+
+networks: 
+  k8:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.100.0/24"
