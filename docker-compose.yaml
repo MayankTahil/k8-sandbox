@@ -10,10 +10,15 @@ services:
     volumes:
       - ./ssh-keys:/data/ssh-keys
       - ./cluster.yaml:/data/cluster.yaml
+      - ./config:/data/.kube_config_cluster.yaml
+    depends_on:
+      - node-1
+      - node-2
+      - node-3
     networks:
       k8:
         ipv4_address: "192.168.100.10"
-
+        1
   node-1:
     hostname: node-1
     restart: always

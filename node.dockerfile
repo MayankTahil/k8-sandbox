@@ -36,4 +36,6 @@ RUN chown rancher /home/rancher/.ssh/* && \
  		sed -i 's/rancher:!:/rancher::/g' /etc/shadow && \
  		rm -rf /keys/rancher
 
+RUN mkdir /var/lib/kubelet && mount -o bind /var/lib/kubelet /var/lib/kubelet && mount --make-shared /var/lib/kubelet
+
 CMD /usr/sbin/sshd -D &>/dev/null & /usr/local/bin/dockerd-entrypoint.sh
