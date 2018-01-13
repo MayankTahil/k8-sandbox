@@ -36,6 +36,5 @@ RUN chown rancher /home/rancher/.ssh/* && \
  		sed -i 's/rancher:!:/rancher::/g' /etc/shadow && \
  		rm -rf /keys/rancher
 
-# RUN sudo mkdir /var/lib/kubelet && sudo mount -o bind /var/lib/kubelet /var/lib/kubelet && sudo mount --make-shared /var/lib/kubelet
-
+# Fix for https://github.com/kubernetes/kubernetes-anywhere/issues/88
 CMD sudo mkdir /var/lib/kubelet && sudo mount -o bind /var/lib/kubelet /var/lib/kubelet && sudo mount --make-shared /var/lib/kubelet && /usr/sbin/sshd -D &>/dev/null & /usr/local/bin/dockerd-entrypoint.sh
