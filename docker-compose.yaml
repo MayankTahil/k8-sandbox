@@ -10,7 +10,6 @@ services:
     volumes:
       - ./ssh-keys:/data/ssh-keys
       - ./cluster.yaml:/data/cluster.yaml
-      - ./config:/data/.kube_config_cluster.yaml
     depends_on:
       - node-1
       - node-2
