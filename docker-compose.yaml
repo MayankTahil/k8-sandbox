@@ -8,7 +8,7 @@ services:
       dockerfile: rke.dockerfile
     image: rke
     volumes:
-      - ./:/data
+      - ./k8-deploy-data:/data
     depends_on:
       - node-1
       - node-2
@@ -24,7 +24,7 @@ services:
       dockerfile: sandbox.dockerfile
     image: rke
     volumes:
-      - ./.kube_config_cluster.yaml:/root/.kube/config
+      - ./k8-deploy-data/.kube_config_cluster.yaml:/root/.kube/config
     ports:
       - "80:80"
       - "443:443"
