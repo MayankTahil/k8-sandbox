@@ -30,7 +30,7 @@ RUN adduser -s /bin/bash -D rancher && \
  mkdir /home/rancher/.ssh && \
  touch /home/rancher/.ssh/authorized_keys
 
-COPY ./ssh-keys/cluster.pub /home/rancher/.ssh/authorized_keys
+COPY ./k8-deploy-data/ssh-keys/cluster.pub /home/rancher/.ssh/authorized_keys
 
 RUN chown rancher /home/rancher/.ssh/* && \
  		sed -i 's/rancher:!:/rancher::/g' /etc/shadow && \
