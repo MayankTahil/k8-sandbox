@@ -1,9 +1,8 @@
 FROM busybox
-ENV VERSION v0.0.9-dev
-RUN mkdir /data && mkdir /data/ssh-keys
+ENV RKE_VERSION v0.0.9-dev
+RUN mkdir /data
 WORKDIR /data
-RUN wget "https://github.com/rancher/rke/releases/download/$VERSION/rke_linux-amd64" -O rke && \
+RUN wget "https://github.com/rancher/rke/releases/download/$RKE_VERSION/rke_linux-amd64" -O rke && \
 		chmod +x rke && \
 		mv rke /bin/rke
-VOLUME /data/cluster.yaml
 CMD rke up --config cluster.yaml
