@@ -8,8 +8,7 @@ services:
       dockerfile: rke.dockerfile
     image: rke
     volumes:
-      - ./ssh-keys:/data/ssh-keys
-      - ./cluster.yaml:/data/cluster.yaml
+      - ./:/data
     depends_on:
       - node-1
       - node-2
@@ -25,7 +24,7 @@ services:
       dockerfile: sandbox.dockerfile
     image: rke
     volumes:
-      - ./:/data
+      - ./.kube_config_cluster.yaml:/root/.kube/config
     ports:
       - "80:80"
       - "443:443"
