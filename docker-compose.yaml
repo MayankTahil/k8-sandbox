@@ -17,7 +17,7 @@ services:
       k8:
         ipv4_address: "192.168.100.10"
 
-  # Sandbox Container that containes kubectl and helm. Bring your own kubectl config file.
+  # Sandbox Container that contains kubectl and helm. Bring your own kubectl config file.
   sandbox:
     build:
       context: ./
@@ -25,6 +25,7 @@ services:
     image: rke
     volumes:
       - ./k8-deploy-data/.kube_config_cluster.yaml:/root/.kube/config
+      - ./services:/data
     ports:
       - "80:80"
       - "443:443"
