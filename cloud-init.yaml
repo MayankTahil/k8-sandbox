@@ -1,0 +1,18 @@
+#cloud-config
+hostname: node-3
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDmj8vlWyw+AJ03hRRTOLHrDDCg9IM+e5uQFAefnEJeCezEQhTU33kSAyVnUHCJE9uvp5cdlW/IDfMlkSn3RH8Dhid6nZx6joWiS57QmDCmYinQDg/MJYesdkNt80zVFtny2AX6nfqP+5RInztdWWQZZyMt3KZI29Fm7h/48A5Vlw== rancher@cluster.local
+rancher:
+  console: ubuntu
+  docker:
+    engine: docker-1.12.6
+  network:
+    interfaces:
+      eth0:
+        dhcp: true
+    dns:
+      nameservers:
+        - 8.8.8.8
+runcmd:
+- [ apt-get, update ]
+- [ apt-get, install, git, watch, nano ]

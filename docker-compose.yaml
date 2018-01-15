@@ -22,7 +22,7 @@ services:
     build:
       context: ./
       dockerfile: sandbox.dockerfile
-    image: rke
+    image: sandbox
     volumes:
       - ./k8-deploy-data/.kube_config_cluster.yaml:/root/.kube/config
       - ./services:/data
