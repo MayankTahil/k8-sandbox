@@ -17,7 +17,7 @@ I personally would recommend a light weight Container OS like [RancherOS](https:
 
 # Instructions 
 
-###**Step 1**
+### **Step 1**
 
 On your docker-host, clone this repository. 
 
@@ -26,7 +26,7 @@ git clone https://github.com/MayankTahil/k8-sandbox.git
 cd k8-sandbox
 ```
 
-###**Step 2** 
+### **Step 2** 
 
 Next within this repository's directory, use `docker-compose` to provision your 3 target 'k8-container-nodes'. 
 
@@ -36,7 +36,7 @@ docker-compose up -d node-2
 docker-compose up -d node-3
 ```
 
-###**Step 3**
+### **Step 3**
 
 Next deploy your **RKE** service to deploy your K8 cluster. 
 
@@ -58,7 +58,7 @@ k8sandbox_rke_1 exited with code 0`
 
 Also, if you encounter an issue with deploying addons, re-run the `docker-compose up -d RKE` command again after a few moments. Some services take a bit longer to resurrect. It is useful to note that RKE is an idempotent tool that can run several times, generating the same output.
 
-**Step 4**
+## **Step 4**
 
 Once your cluster is up and ready, you can then evoke a sandbox environment where you can interrogate your K8 cluster. Start your sandbox CLI by entering the following commands: 
 
