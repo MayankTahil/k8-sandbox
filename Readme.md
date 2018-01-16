@@ -13,7 +13,7 @@ To deploy a 3 node K8 cluster, you will require at minimum :
 * Minimum of 90 GB of free HDD space (hard requirement)
 * Minimum of 4GB of RAM. 
 
-I personally would recommend a light weight Container OS like [RancherOS](https://rancher.com/rancher-os/) as your desired docker host. You can refer to [`cloud-init.yaml`](./cloud-init.yaml) as an example to configure your basic Rancher OS install configurations. You can use the same ssh-key found [here](./k8-deploy-data/ssh-key) to access the host if you desire.
+I personally would recommend a light weight Container OS like [RancherOS](https://rancher.com/rancher-os/) as your desired docker host. You can refer to [`cloud-init.yaml`](./cloud-init.yaml) as an example to configure your basic Rancher OS install configurations. You can use the same ssh-key found [here](./k8-deploy-data/ssh-keys) to access the host if you desire.
 
 # Instructions 
 
